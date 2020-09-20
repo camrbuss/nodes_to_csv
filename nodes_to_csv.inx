@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Nodes to CSV</_name>
+  <id>org.camrbuss.nodestocsv</id>
+
+  <dependency type="executable" location="extensions">nodes_to_csv.py</dependency>
+
+  <param name="output_dir" type="string" _gui-text="Output Directory">/tmp</param>
+  <param name="output_filename" type="string" _gui-text="Output Filename">points.csv</param>
+  <param name="seperator" type="string" _gui-text="Seperator">,</param>
+  <param name="origin" type="optiongroup" _gui-text="Select coordinate's origin: ">
+    <option value="south_west_corner">South West Corner: +X to the right, +Y upwards</option>
+    <option value="north_west_corner">North West Corner: +X to the right, +Y downwards</option>
+  </param>
+  <param name="x_offset" type="float" min="-9999999" max="9999999" _gui-text="X Offset">0.0</param>
+  <param name="y_offset" type="float" min="-9999999" max="9999999" _gui-text="Y Offset">0.0</param>
+
+  <effect needs-live-preview="false">
+    <object-type>path</object-type>
+    <effects-menu>
+      <submenu _name="Export"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">nodes_to_csv.py</command>
+  </script>
+</inkscape-extension>
